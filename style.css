@@ -1,0 +1,59 @@
+/*
+Theme Name: Navbar fixed
+Theme URI: http://shawnnolan.com/themes/navbar-fixed
+Author: Shawn Nolan
+Author URI: http://shawnnolan.com
+Description: Responsive theme for shawnnolan.com
+Version: 0.1
+License: GNU General Public License, version 3 (GPLv3)
+License URI: http://www.gnu.org/licenses/gpl-3.0.txt
+Tags: Responsive, nav bar, twitter bootstrap
+Text Domain: navbar-fixed
+*/
+
+/* carousel */
+.carousel {
+    margin-bottom: 60px;
+    margin-top: -90px;
+}
+
+/* marketing */
+.marketing .col-lg-4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.col-lg-4 p {
+    text-align: justify;
+}
+
+/* featured content */
+.row .featured-content .col-lg-4 img {
+    max-width: 357px;
+    max-height: 267px;
+}
+.img-square{
+    border-radius: 0;
+}
+
+/* blog */
+.img-responsive {
+    float: right;
+}
+
+.img-square.img-responsive {
+    float: none;
+}
+
+
+
+
+/* media queries */
+@media(max-width: 401px) {
+    .featurette-image {
+        display: none;
+    }
+
+    .img-square.img-responsive {
+        display: none;
+    }
+}
