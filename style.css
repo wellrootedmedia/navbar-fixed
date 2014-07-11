@@ -17,6 +17,9 @@ body {
     color: #fff;
 }
 
+.clear {
+    clear: both;
+}
 
 /* carousel */
 .carousel {
@@ -52,6 +55,19 @@ section.featured-slider {
 img.featurette-image.img-thumbnail {
     float: right;
 }
+
+
+/* pagination */
+div.nav-previous.alignleft {
+    float: left;
+}
+
+div.nav-next.alignright {
+    float: right;
+}
+
+
+/* media queries */
 
 @media(max-width:991px) {
     .col-md-3 {

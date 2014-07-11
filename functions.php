@@ -1,5 +1,7 @@
 <?php
 register_nav_menu( 'primary', 'Primary Menu' );
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'loop-thumb', 300, 300 );
 //function setupCarousel()
 //{
 //    do something here...
