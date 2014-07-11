@@ -5,10 +5,15 @@
  */
 
 jQuery(window).load(function() {
-
+    var js_value = {
+        "transition_effect": "fade",
+        "transition_delay": "4000",
+        "transition_duration": "1000"
+    };
     var transition_effect = js_value.transition_effect;
     var transition_delay = js_value.transition_delay;
     var transition_duration = js_value.transition_duration;
+
     jQuery('.featured-slider').cycle({
         fx:            		transition_effect, // name of transition effect (or comma separated names, ex: 'fade,scrollUp,shuffle')
         pager:  			'#controllers',  // element, jQuery object, or jQuery selector string for the element to use as pager container

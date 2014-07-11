@@ -1,34 +1,4 @@
 <?php
-register_nav_menu( 'primary', 'Primary Menu' );
-//function setupCarousel()
-//{
-//    do something here...
-//}
-//add_action( 'addCarousel', 'setupCarousel', 1 );
-
-
-
-
-//function theme_options_menu() {
-//    add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'navbar-theme-options', 'page1_options');
-//    add_action( 'admin_init', 'register_mysettings' );
-//}
-//add_action('admin_menu', 'theme_options_menu');
-//
-//
-//function register_mysettings() {
-//    //register our settings
-//    register_setting( 'baw-settings-group', 'new_option_name' );
-//    register_setting( 'baw-settings-group', 'some_other_option' );
-//    register_setting( 'baw-settings-group', 'option_etc' );
-//}
-//
-//function page1_options() {
-//    include( get_template_directory() . '/inc/admin/page1.php' );
-//}
-
-
-
 class MySettingsPage
 {
     /**
@@ -51,14 +21,13 @@ class MySettingsPage
     public function add_plugin_page()
     {
         // This page will be under "Settings"
-//        add_options_page(
-//            'Settings Admin',
-//            'My Settings',
-//            'manage_options',
-//            'my-setting-admin',
-//            array( $this, 'create_admin_page' )
-//        );
-        add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'navbar-theme-options', array( $this, 'create_admin_page' ));
+        add_options_page(
+            'Settings Admin',
+            'My Settings',
+            'manage_options',
+            'my-setting-admin',
+            array( $this, 'create_admin_page' )
+        );
     }
 
     /**
@@ -104,24 +73,16 @@ class MySettingsPage
 
         add_settings_field(
             'id_number', // ID
-            'ID Number', // Title
+            'ID Number', // Title 
             array( $this, 'id_number_callback' ), // Callback
             'my-setting-admin', // Page
-            'setting_section_id' // Section
+            'setting_section_id' // Section           
         );
 
         add_settings_field(
             'title',
             'Title',
             array( $this, 'title_callback' ),
-            'my-setting-admin',
-            'setting_section_id'
-        );
-
-        add_settings_field(
-            'featured_page',
-            'Featured Page Id',
-            array( $this, 'featured_page_callback' ),
             'my-setting-admin',
             'setting_section_id'
         );
@@ -171,14 +132,6 @@ class MySettingsPage
         printf(
             '<input type="text" id="title" name="my_option_name[title]" value="%s" />',
             isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
-        );
-    }
-
-    public function featured_page_callback()
-    {
-        printf(
-            '<input type="text" id="featured_page" name="my_option_name[featured_page]" value="%s" />',
-            isset( $this->options['featured_page'] ) ? esc_attr( $this->options['featured_page']) : ''
         );
     }
 }

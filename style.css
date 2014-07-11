@@ -11,15 +11,30 @@ Tags: Responsive, nav bar, twitter bootstrap
 Text Domain: navbar-fixed
 */
 
+
+body {
+    background-color: #191919;
+    color: #fff;
+}
+
+
 /* carousel */
 .carousel {
     margin-bottom: 60px;
     margin-top: -90px;
 }
 
+section.featured-slider {
+    max-height: 500px;
+}
+
 /* marketing */
-.marketing .col-lg-4 {
-    text-align: center;
+.container.marketing {
+    margin-top: 20px;
+}
+
+.marketing .col-md-3 {
+    text-align: justify;
     margin-bottom: 20px;
 }
 .col-lg-4 p {
@@ -27,33 +42,66 @@ Text Domain: navbar-fixed
 }
 
 /* featured content */
-.row .featured-content .col-lg-4 img {
-    max-width: 357px;
-    max-height: 267px;
-}
-.img-square{
+
+.img-circle{
     border-radius: 0;
 }
 
 /* blog */
-.img-responsive {
+
+img.featurette-image.img-thumbnail {
     float: right;
 }
 
-.img-square.img-responsive {
-    float: none;
+@media(max-width:991px) {
+    .col-md-3 {
+        width: 50%;
+        float: left;
+    }
+
+    .col-md-7 {
+        float: left;
+        width: 50%;
+    }
+
+    .col-md-5 {
+        float: left;
+        width: 50%;
+    }
 }
 
-
-
-
-/* media queries */
 @media(max-width: 401px) {
-    .featurette-image {
+
+    .featurette-heading {
+        font-size: 14px;
+    }
+
+    p.lead {
         display: none;
     }
 
-    .img-square.img-responsive {
-        display: none;
+    .col-md-7 {
+        float: right;
+        padding-left: 0;
+        padding-right: 25px;
+        width: 78%;
+    }
+
+    .col-md-5 {
+        float: left;
+        padding-right: 0;
+        width: 16%;
+    }
+
+    .col-md-3 {
+        width: 100%;
+    }
+
+    .featurette-image {
+        max-width: 50px;
+    }
+
+    .img-circle.img-thumbnail {
+        display: none !important;
     }
 }
