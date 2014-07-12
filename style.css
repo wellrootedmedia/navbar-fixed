@@ -21,6 +21,10 @@ body {
     clear: both;
 }
 
+.well {
+    border-radius: 0;
+}
+
 /* carousel */
 .carousel {
     margin-bottom: 60px;
@@ -33,7 +37,7 @@ section.featured-slider {
 
 /* marketing */
 .container.marketing {
-    margin-top: 20px;
+    margin-top: 31px;
 }
 
 .marketing .col-md-3 {
@@ -54,6 +58,15 @@ section.featured-slider {
 
 img.featurette-image.img-thumbnail {
     float: right;
+}
+
+
+/* single */
+.well .row .col-md-12 h1 {
+    color: #000;
+}
+.well .row .col-md-12 p {
+    color: #000;
 }
 
 
@@ -86,6 +99,12 @@ div.nav-next.alignright {
     }
 }
 
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        padding-top: 200px;
+    }
+}
+
 @media(max-width: 401px) {
 
     .featurette-heading {
@@ -97,14 +116,15 @@ div.nav-next.alignright {
     }
 
     .col-md-7 {
-        float: right;
-        padding-left: 0;
+        padding-left: 25px;
         padding-right: 25px;
         width: 78%;
     }
+    .col-md-7 h2 {
+        margin-top: 0;
+    }
 
     .col-md-5 {
-        float: left;
         padding-right: 0;
         width: 16%;
     }

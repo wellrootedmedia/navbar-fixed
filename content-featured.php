@@ -25,5 +25,3 @@
         <p><a class="btn btn-default" href="#">View details »</a></p>
     </div><!-- /.col-md-3 -->
 </div>
-
-<hr class="featurette-divider">

@@ -2,6 +2,7 @@
 register_nav_menu( 'primary', 'Primary Menu' );
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'loop-thumb', 300, 300 );
+add_image_size( 'single-image', 848, 270 );
 //function setupCarousel()
 //{
 //    do something here...
