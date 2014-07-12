@@ -78,6 +78,22 @@ div.nav-previous.alignleft {
 div.nav-next.alignright {
     float: right;
 }
+.pagination-wrapper.col-md-12 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    background-color: lightgrey;
+    border: 1px solid darkgray;
+    margin-bottom: 20px;
+}
+
+
+/* footer */
+footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 
 /* media queries */

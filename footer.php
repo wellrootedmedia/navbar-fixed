@@ -1,4 +1,3 @@
-<hr class="featurette-divider">
 
 <!-- FOOTER -->
 <footer>
@@ -21,17 +20,20 @@
 <script>
     $(function() {
 
-        $('.gallery-icon a').each(function(item) {
+        $('.gallery-icon a').each(function() {
             $(this).find('img').addClass('img-thumbnail');
         });
 
-        $('.navbar-nav').find('.menu-item-has-children').each(function(){
+        $('.navbar-nav').find('.menu-item-has-children').each(function() {
             $(this).addClass('dropdown');
             $(this).find('.sub-menu').addClass('dropdown-menu');
         });
 
+        $('.dropdown-menu li').each(function() {
+            $(this).append('<li class="divider"></li>');
+        });
+
         $('ul.nav li.dropdown').hover(function() {
-            console.log($(this).html());
             $(this)
                 .find('.dropdown-menu')
                 .stop(true, true)

@@ -1,6 +1,3 @@
-
-
-
 <!-- START THE FEATURETTES -->
 
 <div class="row featurette">

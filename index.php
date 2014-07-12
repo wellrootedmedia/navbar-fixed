@@ -39,25 +39,21 @@ if($paged <= 1) : ?>
 <?php if($paged <= 1 )
     get_template_part('content','featured'); ?>
 
-<hr class="featurette-divider">
-
 <?php get_template_part('pagination'); ?>
 
-<hr class="featurette-divider">
-
 <?php
-query_posts(
-    array(
+$args = array(
         'category_name' => 'photography',
         'posts_per_page' => '8',
         'order' => 'DESC',
         'paged' => $paged,
         'status' => 'publish'
-    )
-);
-if ( have_posts() ) :
+    );
+$the_query = new WP_Query( $args );
+
+if ( $the_query->have_posts() ) :
     // Start the Loop.
-    while ( have_posts() ) : the_post();
+    while ( $the_query->have_posts() ) : $the_query->the_post();
 
         /*
          * Include the post format-specific template for the content. If you want to
@@ -67,7 +63,10 @@ if ( have_posts() ) :
         get_template_part('content','loop');
 
     endwhile;
+
     get_template_part('pagination');
+    wp_reset_postdata();
+
 endif;
 
 get_footer(); ?>
