@@ -29,7 +29,12 @@
             $(this).find('.sub-menu').addClass('dropdown-menu');
         });
 
-        $('.dropdown-menu li').each(function() {
+        var liCount = $('.dropdown-menu li').length;
+
+        $('.dropdown-menu li').each(function(item) {
+            if (item == liCount) {
+                return false;
+            }
             $(this).append('<li class="divider"></li>');
         });
 
