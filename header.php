@@ -25,6 +25,8 @@
 
     <?php wp_head(); ?>
 
+    <?php wp_enqueue_script('jquery'); ?>
+
     <?php if ( is_user_logged_in() ) {
         ?>
         <style>

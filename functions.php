@@ -3,6 +3,17 @@ register_nav_menu( 'primary', 'Primary Menu' );
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'loop-thumb', 300, 300 );
 add_image_size( 'single-image', 848, 270 );
+add_image_size( 'featured-image', 1600, 600 );
+
+function myplugin_settings() {
+    // Add tag metabox to page
+    register_taxonomy_for_object_type('post_tag', 'page');
+    // Add category metabox to page
+    register_taxonomy_for_object_type('category', 'page');
+}
+// Add to the admin_init hook of your theme functions.php file
+add_action( 'admin_init', 'myplugin_settings' );
+
 //function setupCarousel()
 //{
 //    do something here...

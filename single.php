@@ -30,18 +30,11 @@
 
             <div class="col-md-4">
                 <div class="well sidebar">
+                    <h1>Archives</h1>
                     <ul class="nav">
-                        <li>Sidebar</li>
-                        <li class="active"><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li>Sidebar</li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li>Sidebar</li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
+                        <li><a href="#">January 2012</a></li>
+                        <li><a href="#">February 2012</a></li>
+                        <li><a href="#">March 2012</a></li>
                     </ul>
                 </div><!--/.well -->
             </div><!--/span-->
