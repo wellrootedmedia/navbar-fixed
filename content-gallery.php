@@ -47,6 +47,9 @@
         endif;
         ?>
     </div><!-- .entry-content -->
+    <div class="entry-content mobile">
+        <?php get_template_part('mobile','gallery'); ?>
+    </div>
 
     <div>
         <?php the_tags( '<footer class="entry-meta">Tags: <span class="tag-links">', ', ', '</span></footer>' ); ?>

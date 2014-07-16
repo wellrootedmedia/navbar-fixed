@@ -7,7 +7,8 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/ico/favicon.png">
 
-    <title>Fixed Top Navbar Example for Bootstrap</title>
+    <title><?php wp_title( '|', true, 'right' ); ?><?php bloginfo('name'); ?></title>
+
     <!-- Bootstrap core CSS -->
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/bootstrap.css" rel="stylesheet">
 

@@ -14,18 +14,16 @@ add_theme_support( 'post-formats', array(
     'gallery'
 ) );
 
-function codex_custom_init() {
-    $args = array(
-        'public' => true,
-        'label'  => 'Books',
-        'capability_type' => 'post',
-        'supports' => array('title', 'editor', 'author', 'post-formats')
-    );
-    register_post_type( 'book', $args );
-}
-add_action( 'init', 'codex_custom_init' );
-
-
+//function codex_custom_init() {
+//    $args = array(
+//        'public' => true,
+//        'label'  => 'Books',
+//        'capability_type' => 'post',
+//        'supports' => array('title', 'editor', 'author', 'post-formats')
+//    );
+//    register_post_type( 'book', $args );
+//}
+//add_action( 'init', 'codex_custom_init' );
 
 function custom_page_tag_categories() {
     register_taxonomy_for_object_type('post_tag', 'page');
