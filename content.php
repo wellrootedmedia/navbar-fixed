@@ -30,8 +30,9 @@
         </div><!-- .entry-meta -->
     </header><!-- .entry-header -->
 
+    <hr class="featurette-divider">
+
     <?php if ( is_search() ) : ?>
-        hello wrold
         <div class="entry-summary">
             <?php the_excerpt(); ?>
         </div><!-- .entry-summary -->

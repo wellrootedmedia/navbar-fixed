@@ -3,10 +3,13 @@
     <?php
     $postContent = $post->post_content;
     $beforeColon = substr($postContent, 0, strpos($postContent,'[gallery'));
-    echo $beforeColon;
-    echo '<br/>';
+
     $images = get_attached_media( 'image' );
-    if(is_array($images)):
+    //print_r($images);
+    $gallery = get_post_gallery_images( $post );
+    print_r($gallery);
+    if(!empty($images)):
+        echo $beforeColon;
     ?>
         <div id="main-slider" class="mobile-slider">
             <section class="featured-slider">
@@ -33,6 +36,8 @@
             </div>
         </div>
     <?php else : ?>
-    no images
+        <?php
+        echo $beforeColon;
+        ?>
     <?php endif; ?>
 </div>
