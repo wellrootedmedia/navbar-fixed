@@ -5,8 +5,27 @@ add_image_size( 'loop-thumb', 300, 300 );
 add_image_size( 'single-image', 848, 270 );
 add_image_size( 'featured-image', 1600, 600 );
 add_theme_support( 'post-formats', array(
-    'aside', 'image', 'video', 'audio', 'quote', 'link', 'gallery',
+    //'aside',
+    'image',
+    'video',
+    //'audio',
+    //'quote',
+    //'link',
+    'gallery'
 ) );
+
+function codex_custom_init() {
+    $args = array(
+        'public' => true,
+        'label'  => 'Books',
+        'capability_type' => 'post',
+        'supports' => array('title', 'editor', 'author', 'post-formats')
+    );
+    register_post_type( 'book', $args );
+}
+add_action( 'init', 'codex_custom_init' );
+
+
 
 function custom_page_tag_categories() {
     register_taxonomy_for_object_type('post_tag', 'page');
