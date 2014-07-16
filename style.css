@@ -55,21 +55,41 @@ section.featured-slider {
 }
 
 /* blog */
-
 img.featurette-image.img-thumbnail {
     float: right;
 }
 
 
+/* archive */
+.archive-title {
+
+}
+
+
 /* single */
-.well .row .col-md-12 h1 {
+.col-md-8 .well {
     color: #000;
 }
-.well .row .col-md-12 p {
+
+.cat-links {
     color: #000;
 }
-.well.sidebar h1 {
-    color: #222;
+
+.entry-title {
+    color: #000;
+}
+
+.wp-caption-text {
+    color: #000;
+    font-size: 12px;
+    width: 95%;
+    padding-left: 14px;
+}
+
+
+/* sidebar */
+.well.sidebar {
+    color: #000;
 }
 
 
@@ -89,6 +109,14 @@ div.nav-next.alignright {
     background-color: lightgrey;
     border: 1px solid darkgray;
     margin-bottom: 20px;
+}
+
+.pagination > li > span.current {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #428bca;
+    border-color: #428bca;
 }
 
 
