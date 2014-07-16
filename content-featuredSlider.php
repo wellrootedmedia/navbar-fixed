@@ -17,7 +17,6 @@
                 <figure class="slider-image">
                     <a title="<?php echo $query->post_title; ?>" href="<?php echo get_the_permalink($query->ID); ?>">
                         <img src="<?php echo $url; ?>" class="wp-post-image img-responsive" alt="<?php echo $query->post_title; ?>" title="<?php echo $query->post_title; ?>">
-<!--                        <p><?php echo $query->post_title; ?></p>-->
                     </a>
                 </figure>
             </article>

@@ -26,6 +26,9 @@ body {
 }
 
 /* slider */
+#main-slider {
+    height: 400px;
+}
 #controllers a {
     width: 30px;
     height: 30px;
@@ -88,6 +91,31 @@ img.featurette-image.img-thumbnail {
 
 .entry-content.mobile {
     display: none;
+}
+
+#main-slider.mobile-slider {
+    height: auto;
+}
+
+#slider-nav.mobile-slider-nav a {
+    color: inherit;
+}
+#slider-nav.mobile-slider-nav .slide-previous {
+    left: 0;
+    float: left;
+}
+#slider-nav.mobile-slider-nav .slide-next {
+    left: 0;
+    float: right;
+}
+#slider-nav.mobile-slider-nav .slide-previous, .slide-next {
+    opacity: 100;
+    position: relative;
+    top: 0;
+    margin-top: 0;
+}
+#slider-nav.mobile-slider-nav span {
+    display: block;
 }
 
 
