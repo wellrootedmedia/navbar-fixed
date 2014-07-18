@@ -7,7 +7,7 @@
     $images = get_attached_media( 'image' );
     //print_r($images);
     $gallery = get_post_gallery_images( $post );
-    print_r($gallery);
+
     if(!empty($images)):
         echo $beforeColon;
     ?>
