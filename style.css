@@ -119,6 +119,12 @@ img.featurette-image.img-thumbnail {
 }
 
 
+/* page */
+.entry-content.page {
+    display: block;
+}
+
+
 /* sidebar */
 .well.sidebar {
     color: #000;

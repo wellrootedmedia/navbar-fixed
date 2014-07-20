@@ -96,6 +96,14 @@ if ( ! function_exists( 'navbar_fixed_top_paging_nav' ) ) :
     }
 endif;
 
+
+function custom_excerpt_more($more) {
+    global $post;
+    //return '...<br/><button href="'. get_permalink($post->ID) . '" type="button" class="btn btn-default">Read More</button>';
+    return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed-top') .'</a>';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
 //function setupCarousel()
 //{
 //    do something here...
