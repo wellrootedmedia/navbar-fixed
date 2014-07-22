@@ -57,7 +57,9 @@ section.featured-slider {
 }
 
 /* featured content */
-
+.img-thumbnail {
+    width: 100%;
+}
 
 /* blog */
 
