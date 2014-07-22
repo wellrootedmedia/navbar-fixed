@@ -23,6 +23,7 @@
 
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/jquery.slider.css" rel="stylesheet">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/style.css" rel="stylesheet">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/social.css" rel="stylesheet">
 
     <?php wp_head(); ?>
 
@@ -70,26 +71,36 @@
             <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
         </div>
 
-        <?php
-        $defaults = array(
-            'theme_location' => '',
-            'menu' => 'main menu',
-            'container' => 'div',
-            'container_class' => 'navbar-collapse collapse',
-            'container_id' => '',
-            'menu_class' => 'nav navbar-nav',
-            'menu_id' => '',
-            'echo' => true,
-            'fallback_cb' => 'wp_page_menu',
-            'before' => '',
-            'after' => '',
-            'link_before' => '',
-            'link_after' => '',
-            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-            'depth' => 0,
-            'walker' => ''
-        ); wp_nav_menu($defaults);
-        ?>
+        <div class="navbar-collapse collapse">
+            <?php
+            $defaults = array(
+                'theme_location' => '',
+                'menu' => 'main menu',
+                'container' => 'div',
+                'container_class' => '',
+                'container_id' => '',
+                'menu_class' => 'nav navbar-nav',
+                'menu_id' => '',
+                'echo' => true,
+                'fallback_cb' => 'wp_page_menu',
+                'before' => '',
+                'after' => '',
+                'link_before' => '',
+                'link_after' => '',
+                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'depth' => 0,
+                'walker' => ''
+            ); wp_nav_menu($defaults);
+            ?>
+<!--            <ul class="nav navbar-nav navbar-right">-->
+<!--                <li>-->
+<!--                    <div class="social-icon social-facebook"><a href="#" target="_blank" data-original-title="Facebook">Facebook</a></div>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <div class="social-icon social-twitter"><a href="#" target="_blank" data-original-title="Twitter">Twitter</a></div>-->
+<!--                </li>-->
+<!--            </ul>-->
+        </div>
 
     </div>
 </div>

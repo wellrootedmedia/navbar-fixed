@@ -16,11 +16,15 @@ if(!empty($queries)) :
             <?php
             foreach($queries as $query) {
             ?>
-                <?php $url = wp_get_attachment_url( get_post_thumbnail_id($query->ID, 'thumbnail') ); ?>
+                <?php $url = wp_get_attachment_url( get_post_thumbnail_id($query->ID, 'loop-thumb') ); ?>
                 <article class="post hentry slides demo-image displayblock">
                     <figure class="slider-image">
                         <a title="<?php echo $query->post_title; ?>" href="<?php echo get_the_permalink($query->ID); ?>">
-                            <img src="<?php echo $url; ?>" class="wp-post-image img-responsive" alt="<?php echo $query->post_title; ?>" title="<?php echo $query->post_title; ?>">
+                            <img src="<?php echo $url; ?>"
+                                 class="wp-post-image img-responsive"
+                                 alt="<?php echo $query->post_title; ?>"
+                                 title="<?php echo $query->post_title; ?>">
+<!--                            <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/1600x534/text:--><?php //echo $query->post_title; ?><!--" alt="Generic placeholder image">-->
                         </a>
                     </figure>
                 </article>

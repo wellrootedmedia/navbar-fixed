@@ -3,6 +3,11 @@
 <?php else: ?>
 
 <div class="well">
+    <?php
+    if ( has_post_thumbnail() ) {
+        the_post_thumbnail( 'single-featured-image', array('class' => 'img-responsive') );
+    }
+    ?>
     <header class="entry-header">
         <?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) ) : ?>
             <div class="entry-meta">

@@ -12,10 +12,10 @@ Text Domain: navbar-fixed
 */
 
 
-body {
-    background-color: #191919;
-    color: #fff;
-}
+/*body {*/
+    /*background-color: #191919;*/
+    /*color: #fff;*/
+/*}*/
 
 .clear {
     clear: both;
@@ -25,9 +25,14 @@ body {
     border-radius: 0;
 }
 
+/* menu */
+
+
+
+
 /* slider */
 #main-slider {
-    height: 400px;
+    max-height: 400px;
 }
 #controllers a {
     width: 30px;
@@ -53,14 +58,9 @@ section.featured-slider {
 
 /* featured content */
 
-.img-circle{
-    border-radius: 0;
-}
 
 /* blog */
-img.featurette-image.img-thumbnail {
-    float: right;
-}
+
 
 
 /* archive */
@@ -254,9 +254,9 @@ footer {
         width: 100%;
     }
 
-    .featurette-image {
-        max-width: 50px;
-    }
+    /*.featurette-image {*/
+        /*max-width: 50px;*/
+    /*}*/
 
     .img-circle.img-thumbnail {
         display: none !important;

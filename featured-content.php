@@ -12,7 +12,6 @@ $posts = query_posts($args);
 
 if(!empty($posts)) :
 ?>
-<h2>Featured Content</h2>
 <div class="row">
 <?php
 
@@ -23,6 +22,7 @@ if ( have_posts() ) :
     while ( have_posts() ) : the_post();
         ?>
         <div class="col-md-3">
+            <h2><?php the_title(); ?></h2>
             <?php
             if ( has_post_thumbnail() ) {
                 echo the_post_thumbnail('loop-thumb', array('class' => 'featurette-image img-thumbnail') );
@@ -32,8 +32,7 @@ if ( have_posts() ) :
             <?php
             }
             ?>
-            <h2><?php the_title(); ?></h2>
-            <p><?php the_excerpt(); ?></p>
+            <span class="the-exceprt"><?php the_excerpt(); ?></span>
             <p><a class="btn btn-default" href="<?php the_permalink(); ?>">View details »</a></p>
         </div><!-- /.col-md-3 -->
         <?php
