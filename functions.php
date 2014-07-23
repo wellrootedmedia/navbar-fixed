@@ -18,13 +18,25 @@ add_theme_support( 'post-formats', array(
     'gallery'
 ) );
 
-
-
 function custom_page_tag_categories() {
     register_taxonomy_for_object_type('post_tag', 'page');
     register_taxonomy_for_object_type('category', 'page');
 }
 add_action( 'admin_init', 'custom_page_tag_categories' );
+
+
+
+// [bartag foo="bar"]
+function bartag_func($atts) {
+    extract(shortcode_atts(array(
+            'foo' => 'no foo',
+            'baz' => 'default baz',
+    ), $atts));
+
+    return "foo = {$foo}";
+}
+add_shortcode('bartag', 'bartag_func');
+
 
 
 if ( ! function_exists( 'navbar_fixed_posted_on' ) ) :
@@ -95,7 +107,7 @@ endif;
 function custom_excerpt_more($more) {
     global $post;
     //return '...<br/><button href="'. get_permalink($post->ID) . '" type="button" class="btn btn-default">Read More</button>';
-    return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed-top') .'</a>';
+    //return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed-top') .'</a>';
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
 

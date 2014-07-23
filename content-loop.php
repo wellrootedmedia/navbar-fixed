@@ -17,7 +17,7 @@
             echo the_post_thumbnail('loop-thumb', array('class' => 'featurette-image img-thumbnail') );
         } else {
             ?>
-            <img class="featurette-image img-thumbnail" src="data:image/png;base64," data-src="holder.js/300x300/auto" alt="Generic placeholder image">
+            <img class="featurette-image img-thumbnail" src="data:image/png;base64," data-src="holder.js/300x200/auto" alt="Generic placeholder image">
         <?php
         }
         ?>

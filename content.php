@@ -48,9 +48,11 @@
             ) );
             ?>
         </div><!-- .entry-content -->
-        <div class="entry-content mobile">
-            <?php get_template_part('mobile','gallery'); ?>
-        </div>
+<!--        --><?php //if(!is_category('Videos')): ?>
+<!--        <div class="entry-content mobile">-->
+<!--            --><?php //get_template_part('mobile','gallery'); ?>
+<!--        </div>-->
+<!--        --><?php //endif; ?>
     <?php endif; ?>
 
     <div>

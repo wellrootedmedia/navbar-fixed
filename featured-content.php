@@ -2,8 +2,8 @@
 <?php
 $args = array(
     'category_name' => 'featured',
-    'posts_per_page' => '6',
-    'order' => 'DESC',
+    'posts_per_page' => '4',
+    'order' => 'menu_order',
     'paged' => $paged,
     'status' => 'publish',
     'post_type' => 'page'
@@ -20,8 +20,12 @@ if ( have_posts() ) :
     navbar_fixed_top_paging_nav();
 
     while ( have_posts() ) : the_post();
+        // Get the ID of a given category
+        $category_id = get_cat_ID( the_title('', '', false) );
+        // Get the URL of this category
+        $category_link = get_category_link( $category_id );
         ?>
-        <div class="col-md-3">
+        <div class="col-md-3 featured-content">
             <h2><?php the_title(); ?></h2>
             <?php
             if ( has_post_thumbnail() ) {
@@ -32,8 +36,7 @@ if ( have_posts() ) :
             <?php
             }
             ?>
-            <span class="the-exceprt"><?php the_excerpt(); ?></span>
-            <p><a class="btn btn-default" href="<?php the_permalink(); ?>">View details »</a></p>
+            <p><a class="btn btn-default" href="<?php echo $category_link; ?>">View <?php the_title(); ?> details »</a></p>
         </div><!-- /.col-md-3 -->
         <?php
     endwhile;
