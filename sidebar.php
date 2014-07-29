@@ -1,9 +1,5 @@
-
-    <div class="well sidebar">
-        <h1>Archives</h1>
-        <ul class="nav">
-            <li><a href="#">January 2012</a></li>
-            <li><a href="#">February 2012</a></li>
-            <li><a href="#">March 2012</a></li>
-        </ul>
-    </div><!--/.well -->
+<div class="well sidebar">
+    <?php if ( is_active_sidebar( 'unique-sidebar-id' ) ) : ?>
+            <?php dynamic_sidebar( 'unique-sidebar-id' ); ?>
+    <?php endif; ?>
+</div>

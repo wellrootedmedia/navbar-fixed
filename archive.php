@@ -1,8 +1,6 @@
 <?php
-get_header(); ?>
-
-<?php if ( have_posts() ) : ?>
-
+get_header();
+if ( have_posts() ) : ?>
     <header class="page-header">
         <h1 class="page-title">
             <?php
@@ -19,14 +17,14 @@ get_header(); ?>
         </h1>
     </header><!-- .page-header -->
     <?php
-    // Start the Loop.
+    navbar_fixed_top_paging_nav();
+
     while ( have_posts() ) : the_post();
         get_template_part( 'content', get_post_format() );
     endwhile;
-    // Previous/next page navigation.
+
     navbar_fixed_top_paging_nav();
 else :
-// If no content, include the "No posts found" template.
     get_template_part( 'content', 'none' );
 endif;
 ?>

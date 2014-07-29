@@ -38,9 +38,15 @@
             .navbar-fixed-top {
                 top: 32px;
             }
+
             .container.marketing {
                 margin-top: 33px;
             }
+
+            .fancybox-overlay {
+                z-index: 999999999;
+            }
+
             @media screen and (max-width: 600px) {
 
                 #wpadminbar {

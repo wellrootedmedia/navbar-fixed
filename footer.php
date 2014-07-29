@@ -44,13 +44,21 @@
 <script type="text/javascript">
     jQuery(function($) {
 
+        /* fancybox stuff */
+
         $('.gallery-icon a').each(function() {
             $(this).addClass('fancybox');
             $(this).attr( "data-fancybox-group", "gallery" );
             $(this).find('img').addClass('img-thumbnail');
         });
 
+        $('.entry-content img').each(function() {
+            $( this ).parent().addClass('fancybox');
+        });
+
         $('.fancybox').fancybox({ padding: 0 });
+
+        /* end fancybox stuff */
 
         $('.navbar-nav').find('.menu-item-has-children').each(function() {
             $(this).addClass('dropdown');

@@ -3,6 +3,11 @@
 <?php else: ?>
 
     <div class="well">
+        <?php
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail( 'single-featured-image', array('class' => 'img-responsive') );
+        }
+        ?>
         <header class="entry-header">
             <?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) ) : ?>
                 <div class="entry-meta">
@@ -18,9 +23,9 @@
             endif;
             ?>
             <div class="entry-meta">
-            <span class="post-format">
-                <a class="entry-format" href="<?php echo esc_url( get_post_format_link( 'image' ) ); ?>"><?php echo get_post_format_string( 'image' ); ?></a>
-            </span>
+                <span class="post-format">
+                    <a class="entry-format" href="<?php echo esc_url( get_post_format_link( 'aside' ) ); ?>"><?php echo get_post_format_string( 'aside' ); ?></a>
+                </span>
 
                 <?php navbar_fixed_posted_on(); ?>
 
@@ -36,21 +41,15 @@
 
         <div class="entry-content">
             <?php
-            if(is_single()) :
-                the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'navbar-fixed-top' ) );
-                wp_link_pages( array(
-                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'navbar-fixed-top' ) . '</span>',
-                    'after'       => '</div>',
-                    'link_before' => '<span>',
-                    'link_after'  => '</span>',
-                ) );
-            endif;
+            the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'navbar-fixed-top' ) );
+            wp_link_pages( array(
+                'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'navbar-fixed-top' ) . '</span>',
+                'after'       => '</div>',
+                'link_before' => '<span>',
+                'link_after'  => '</span>',
+            ) );
             ?>
         </div><!-- .entry-content -->
-<!--        <div class="entry-content mobile">-->
-<!--            --><?php //get_template_part('mobile','gallery'); ?>
-<!--        </div>-->
-
         <div>
             <?php the_tags( '<footer class="entry-meta">Tags: <span class="tag-links">', ', ', '</span></footer>' ); ?>
         </div>

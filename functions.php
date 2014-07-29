@@ -9,7 +9,7 @@ if ( function_exists( 'add_image_size' ) ) {
     add_image_size( 'featured-image', 1600, 600 );
 }
 add_theme_support( 'post-formats', array(
-    //'aside',
+    'aside',
     'image',
     'video',
     //'audio',
@@ -110,6 +110,30 @@ function custom_excerpt_more($more) {
     //return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed-top') .'</a>';
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
+
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */
+function shawn_nolan_widgets_init() {
+//    <h1>Archives</h1>
+//    <ul class="nav">
+//        <li><a href="#">January 2012</a></li>
+//        <li><a href="#">February 2012</a></li>
+//        <li><a href="#">March 2012</a></li>
+//    </ul>
+    $args = array(
+        'name'          => __( 'Shawn Nolan Widgets', 'theme_text_domain' ),
+        'id'            => 'unique-sidebar-id',
+        'description'   => '',
+        'class'         => 'nav',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '<h1 class="widgettitle">',
+        'after_title'   => '</h1>' );
+    register_sidebar($args);
+}
+add_action( 'widgets_init', 'shawn_nolan_widgets_init' );
 
 
 
