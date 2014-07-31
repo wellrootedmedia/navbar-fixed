@@ -144,11 +144,15 @@ function retrieveCatsForHomepage() {
     $catOptions = get_option('my_option_name');
     $cats = "";
 
-    foreach($catOptions as $option) {
-        $cats = $option;
+    if($catOptions) {
+        foreach($catOptions as $option) {
+            $cats = $option;
+        }
+        return $cats;
     }
 
-    return $cats;
+    return 0;
+
 }
 
 
