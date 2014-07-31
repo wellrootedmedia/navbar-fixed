@@ -1,17 +1,4 @@
 
-<?php
-$args = array(
-    'category_name' => 'featured',
-    'posts_per_page' => '4',
-    'order' => 'menu_order',
-    'paged' => $paged,
-    'status' => 'publish',
-    'post_type' => 'post'
-);
-$posts = query_posts($args);
-
-if(!empty($posts)) :
-?>
 <div class="row">
 
     <?php
@@ -24,34 +11,40 @@ if(!empty($posts)) :
         'hide_empty'               => 1,
         'hierarchical'             => 1,
         'exclude'                  => '',
-        'include'                  => '9,6',
+        'include'                  => retrieveCatsForHomepage(),
         'number'                   => '',
         'taxonomy'                 => 'category',
         'pad_counts'               => false
 
     );
     $categories = get_categories($args);
-    //print_r($categories);
-    if (function_exists('z_taxonomy_image_url')) {
+
+    if(!function_exists('showCategoryImage')) {
+        $imageUrl = "";
         function showCategoryImage($id, $size) {
-            $imageUrl = z_taxonomy_image_url($id, $size);
-            ?>
-            <img
-                class="featurette-image img-thumbnail"
-                src="<?php
-                echo $imageUrl;
-                ?>" />
-        <?php
+            if (function_exists('z_taxonomy_image_url')) {
+                $imageUrl = z_taxonomy_image_url($id, $size);
+                ?>
+                <img
+                    class="featurette-image img-thumbnail"
+                    src="<?php
+                    echo $imageUrl;
+                    ?>" />
+                <?php
+            } else {
+                ?>
+                <img class="img-square img-thumbnail" src="data:image/png;base64," data-src="holder.js/300x200/text:placeholder" alt="140x140" style="width: 140px; height: 140px;">
+                <?php
+            }
         }
-    } else {
-        function showCategoryImage($id, $size) {}
     }
+
     foreach ( $categories as $category ) {
         ?>
         <div class="col-md-3 featured-content">
             <h2><?php echo $category->name; ?></h2>
-            <?php showCategoryImage($category->cat_ID, 'loop-thumb'); ?>
-            <p><a class="btn btn-default" href="<?php echo get_category_link($category->cat_ID); ?>">View <?php echo $category->name; ?> category »</a></p>
+            <a class="btn btn-default" href="<?php echo get_category_link($category->cat_ID); ?>"><?php showCategoryImage($category->cat_ID, 'loop-thumb'); ?>
+            <p>View <?php echo $category->name; ?> category »</p></a>
         </div><!-- /.col-md-3 -->
         <?php
     }
@@ -60,5 +53,3 @@ if(!empty($posts)) :
 </div>
 
 <hr class="featurette-divider">
-
-<?php endif; ?>

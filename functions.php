@@ -140,6 +140,17 @@ add_action( 'widgets_init', 'shawn_nolan_widgets_init' );
 
 require_once( get_template_directory() . '/inc/admin/theme-options.php' );
 
+function retrieveCatsForHomepage() {
+    $catOptions = get_option('my_option_name');
+    $cats = "";
+
+    foreach($catOptions as $option) {
+        $cats = $option;
+    }
+
+    return $cats;
+}
+
 
 
 
