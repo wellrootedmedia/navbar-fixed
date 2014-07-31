@@ -6,44 +6,56 @@ $args = array(
     'order' => 'menu_order',
     'paged' => $paged,
     'status' => 'publish',
-    'post_type' => 'page'
+    'post_type' => 'post'
 );
 $posts = query_posts($args);
 
 if(!empty($posts)) :
 ?>
 <div class="row">
-<?php
 
+    <?php
+    $args = array(
+        'type'                     => 'post',
+        'child_of'                 => 0,
+        'parent'                   => '',
+        'orderby'                  => 'name',
+        'order'                    => 'ASC',
+        'hide_empty'               => 1,
+        'hierarchical'             => 1,
+        'exclude'                  => '',
+        'include'                  => '9,6',
+        'number'                   => '',
+        'taxonomy'                 => 'category',
+        'pad_counts'               => false
 
-if ( have_posts() ) :
-    navbar_fixed_top_paging_nav();
-
-    while ( have_posts() ) : the_post();
-        // Get the ID of a given category
-        $category_id = get_cat_ID( the_title('', '', false) );
-        // Get the URL of this category
-        $category_link = get_category_link( $category_id );
+    );
+    $categories = get_categories($args);
+    //print_r($categories);
+    if (function_exists('z_taxonomy_image_url')) {
+        function showCategoryImage($id, $size) {
+            $imageUrl = z_taxonomy_image_url($id, $size);
+            ?>
+            <img
+                class="featurette-image img-thumbnail"
+                src="<?php
+                echo $imageUrl;
+                ?>" />
+        <?php
+        }
+    } else {
+        function showCategoryImage($id, $size) {}
+    }
+    foreach ( $categories as $category ) {
         ?>
         <div class="col-md-3 featured-content">
-            <h2><?php the_title(); ?></h2>
-            <?php
-            if ( has_post_thumbnail() ) {
-                echo the_post_thumbnail('loop-thumb', array('class' => 'featurette-image img-thumbnail') );
-            } else {
-                ?>
-                <img class="img-circle img-thumbnail" src="data:image/png;base64," data-src="holder.js/293x196" alt="140x140" style="width: 140px; height: 140px;">
-            <?php
-            }
-            ?>
-            <p><a class="btn btn-default" href="<?php echo $category_link; ?>">View <?php the_title(); ?> details »</a></p>
+            <h2><?php echo $category->name; ?></h2>
+            <?php showCategoryImage($category->cat_ID, 'loop-thumb'); ?>
+            <p><a class="btn btn-default" href="<?php echo get_category_link($category->cat_ID); ?>">View <?php echo $category->name; ?> category »</a></p>
         </div><!-- /.col-md-3 -->
         <?php
-    endwhile;
-
-    navbar_fixed_top_paging_nav();
-endif;
-?>
+    }
+    ?>
 
 </div>
 

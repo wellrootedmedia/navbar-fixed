@@ -5,26 +5,26 @@ $args = array(
     'posts_per_page' => '5',
     'order' => 'DESC',
     'status' => 'publish',
-    array( 'post_type' => 'page', 'post_type' => 'post' )
+    array('post_type' => 'page', 'post_type' => 'post')
 );
-$queries = query_posts( $args );
+$queries = query_posts($args);
 
-if(!empty($queries)) :
-?>
+if (!empty($queries)) :
+    ?>
     <div id="main-slider">
         <section class="featured-slider">
             <?php
-            foreach($queries as $query) {
-            ?>
-                <?php $url = wp_get_attachment_url( get_post_thumbnail_id($query->ID, 'loop-thumb') ); ?>
+            foreach ($queries as $query) {
+                ?>
+                <?php $url = wp_get_attachment_url(get_post_thumbnail_id($query->ID, 'loop-thumb')); ?>
                 <article class="post hentry slides demo-image displayblock">
                     <figure class="slider-image">
-                        <a title="<?php echo $query->post_title; ?>" href="<?php echo get_the_permalink($query->ID); ?>">
+                        <a title="<?php echo $query->post_title; ?>"
+                           href="<?php echo get_the_permalink($query->ID); ?>">
                             <img src="<?php echo $url; ?>"
                                  class="wp-post-image img-responsive"
                                  alt="<?php echo $query->post_title; ?>"
                                  title="<?php echo $query->post_title; ?>">
-<!--                            <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/1600x534/text:--><?php //echo $query->post_title; ?><!--" alt="Generic placeholder image">-->
                         </a>
                     </figure>
                 </article>
