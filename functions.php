@@ -38,6 +38,22 @@ function bartag_func($atts) {
 add_shortcode('bartag', 'bartag_func');
 
 
+function toolbar_link_to_mypage( $wp_admin_bar ) {
+
+    $my_theme = wp_get_theme();
+    $say = $my_theme->get( 'Name' ) . " is version " . $my_theme->get( 'Version' );
+
+    $args = array(
+        'id'    => 'theme_version',
+        'title' => $say,
+        'href'  => bloginfo('url'),
+        'meta'  => array( 'class' => 'current-theme-version' )
+    );
+    $wp_admin_bar->add_node( $args );
+}
+add_action( 'admin_bar_menu', 'toolbar_link_to_mypage', 999 );
+
+
 
 if ( ! function_exists( 'navbar_fixed_posted_on' ) ) :
     function navbar_fixed_posted_on() {
