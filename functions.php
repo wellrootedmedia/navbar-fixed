@@ -41,12 +41,13 @@ add_shortcode('bartag', 'bartag_func');
 function toolbar_link_to_mypage( $wp_admin_bar ) {
 
     $my_theme = wp_get_theme();
-    $say = $my_theme->get( 'Name' ) . " is version " . $my_theme->get( 'Version' );
+    $say = $my_theme->get( 'Name' ) . " [ " . $my_theme->get( 'Version' ) . " ]";
+    $blogUrl = get_site_url() . '/wp-admin/themes.php?page=navbar-theme-options';
 
     $args = array(
         'id'    => 'theme_version',
         'title' => $say,
-        'href'  => bloginfo('url'),
+        'href'  => $blogUrl,
         'meta'  => array( 'class' => 'current-theme-version' )
     );
     $wp_admin_bar->add_node( $args );
