@@ -24,17 +24,19 @@
         function showCategoryImage($id, $size) {
             if (function_exists('z_taxonomy_image_url')) {
                 $imageUrl = z_taxonomy_image_url($id, $size);
-                ?>
-                <img
-                    class="featurette-image img-thumbnail"
-                    src="<?php
-                    echo $imageUrl;
-                    ?>" />
-                <?php
-            } else {
-                ?>
-                <img class="img-square img-thumbnail" src="data:image/png;base64," data-src="holder.js/300x200/text:placeholder" alt="140x140" style="width: 140px; height: 140px;">
-                <?php
+                if(empty($imageUrl)) {
+                    ?>
+                    <img class="img-square img-thumbnail" src="data:image/png;base64," data-src="holder.js/237x160/text:placeholder" alt="140x140" />
+                    <?php
+                } else {
+                    ?>
+                    <img
+                        class="featurette-image img-thumbnail"
+                        src="<?php
+                        echo $imageUrl;
+                        ?>" />
+                    <?php
+                }
             }
         }
     }
