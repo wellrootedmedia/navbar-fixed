@@ -6,7 +6,7 @@
             <a href="<?php the_permalink(); ?>"><?php the_title(); ?>. </a>
         </h2>
         <div class="remove-mobile">
-            <p class="lead"><?php the_excerpt(); //display_excerpt( $post->ID ); ?></p>
+            <p class="lead"><?php the_excerpt(); ?></p>
         </div>
 
         <p class="lead">Categories: <?php echo get_the_category_list(' | '); ?></p>

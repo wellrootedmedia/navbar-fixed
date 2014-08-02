@@ -4,7 +4,7 @@ Theme URI: http://shawnnolan.com/themes/navbar-fixed
 Author: Shawn Nolan
 Author URI: http://shawnnolan.com
 Description: Responsive theme for shawnnolan.com
-Version: 1.1
+Version: 1.2
 License: GNU General Public License, version 3 (GPLv3)
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 Tags: Responsive, nav bar, twitter bootstrap
@@ -158,6 +158,19 @@ section.featured-slider {
 /* page */
 .entry-content.page {
     display: block;
+}
+
+.page-featured-image {
+    float: right;
+    width: 50%;
+    margin: 30px 0 10px 10px;
+}
+.rightimage:before {
+    content: '' ;
+    display:block;
+    float: right;
+    height: 200px;
+
 }
 
 

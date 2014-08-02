@@ -1,17 +1,5 @@
 <style type="text/css">
-    .page-featured-image {
-        float:right;
-        clear:both;
-        width: 50% ;
-        margin: 30px -50px 10px 10px ;
-    }
-    .rightimage:before {
-        content: '' ;
-        display:block;
-        float: right;
-        height: 200px;
 
-    }
 </style>
 <div class="well">
     <header class="entry-header">
