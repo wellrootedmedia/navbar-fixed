@@ -44,9 +44,10 @@
     foreach ( $categories as $category ) {
         ?>
         <div class="col-md-3 featured-content">
-            <h2><?php echo $category->name; ?></h2>
-            <a class="btn btn-default" href="<?php echo get_category_link($category->cat_ID); ?>"><?php showCategoryImage($category->cat_ID, 'loop-thumb'); ?>
-            <p>View <?php echo $category->name; ?> category »</p></a>
+            <a class="btn btn-default" href="<?php echo get_category_link($category->cat_ID); ?>">
+                <h2><?php echo $category->name; ?> &raquo;</h2>
+                <?php showCategoryImage($category->cat_ID, 'loop-thumb'); ?>
+            </a>
         </div><!-- /.col-md-3 -->
         <?php
     }
