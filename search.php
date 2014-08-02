@@ -17,6 +17,7 @@
                 endwhile;
 
                 navbar_fixed_top_paging_nav();
+                wp_reset_query();
 
             else :
 

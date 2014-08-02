@@ -51,6 +51,8 @@
         </div><!-- /.col-md-3 -->
         <?php
     }
+
+    wp_reset_query();
     ?>
 
 </div>

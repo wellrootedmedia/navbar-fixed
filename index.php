@@ -2,15 +2,10 @@
 
 <div class="">
 <?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-if($paged <= 1) {
-    //get_template_part('featured', 'slider');
-}
+//get_template_part('featured', 'slider');
 
-if($paged <= 1 ) {
-    get_template_part('featured','content');
-}
+get_template_part('featured','content');
 ?>
 
 <?php

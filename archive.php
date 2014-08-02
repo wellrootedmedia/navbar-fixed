@@ -24,6 +24,7 @@ if ( have_posts() ) : ?>
     endwhile;
 
     navbar_fixed_top_paging_nav();
+    wp_reset_query();
 else :
     get_template_part( 'content', 'none' );
 endif;
