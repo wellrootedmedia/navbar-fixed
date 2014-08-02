@@ -159,18 +159,31 @@ require_once( get_template_directory() . '/inc/admin/theme-options.php' );
 
 function retrieveCatsForHomepage() {
     $catOptions = get_option('my_option_name');
-    $cats = "";
 
     if($catOptions) {
-        foreach($catOptions as $option) {
-            $cats = $option;
-        }
-
-        return $cats;
+        return $catOptions['category_ids'];
     }
 
     return 0;
 
+}
+
+
+function retrieveSocialNetworks() {
+    $socialNetworks = get_option('my_option_name');
+
+    echo '<div class="col-md-6 social-icons">';
+
+    if( !empty( $socialNetworks['facebook_link'] ) && $socialNetworks['facebook_link'] )
+        echo '<div class="social-icon social-facebook"><a href="' . $socialNetworks['facebook_link'] . '" target="_blank" data-original-title="Facebook">Facebook</a></div>';
+
+    if( !empty( $socialNetworks['twitter_link'] ) && $socialNetworks['twitter_link'] )
+        echo '<div class="social-icon social-twitter"><a href="' . $socialNetworks['twitter_link'] . '" target="_blank" data-original-title="Twitter">Twitter</a></div>';
+
+    if( !empty( $socialNetworks['youtube_link'] ) && $socialNetworks['youtube_link'] )
+        echo '<div class="social-icon social-youtube"><a href="' . $socialNetworks['youtube_link'] . '" target="_blank" data-original-title="YouTube">YouTube</a></div>';
+
+    echo '</div>';
 }
 
 

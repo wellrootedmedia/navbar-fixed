@@ -5,14 +5,8 @@
         <p><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a> <a href="<?php bloginfo('url'); ?>/<?php echo date('Y'); ?>"><?php echo date('Y'); ?></a></p>
 <!--        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>-->
     </div>
-    <div class="col-md-6 social-icons">
-        <div class="social-icon social-facebook"><a href="#" target="_blank" data-original-title="Facebook">Facebook</a></div>
-        <div class="social-icon social-twitter"><a href="#" target="_blank" data-original-title="Twitter">Twitter</a></div>
-        <div class="social-icon social-vimeo"><a href="#" target="_blank" data-original-title="Vimeo">Vimeo</a></div>
-        <div class="social-icon social-youtube"><a href="#" target="_blank" data-original-title="Youtube">Youtube</a></div>
-        <div class="social-icon social-linkedin"><a href="#" target="_blank" data-original-title="Linkedin">Linkedin</a></div>
-        <div class="social-icon social-wordpress"><a href="#" target="_blank" data-original-title="Wordpress">Wordpress</a></div>
-    </div>
+
+    <?php retrieveSocialNetworks(); ?>
 </footer>
 
 

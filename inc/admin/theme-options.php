@@ -21,14 +21,6 @@ class MySettingsPage
      */
     public function add_plugin_page()
     {
-        // This page will be under "Settings"
-        //        add_options_page(
-        //            'Settings Admin',
-        //            'My Settings',
-        //            'manage_options',
-        //            'my-setting-admin',
-        //            array( $this, 'create_admin_page' )
-        //        );
         add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'navbar-theme-options', array($this, 'create_admin_page'));
     }
 
@@ -49,6 +41,9 @@ class MySettingsPage
                 // This prints out all hidden setting fields
                 settings_fields('my_option_group');
                 do_settings_sections('my-setting-admin');
+
+                settings_fields('social_network_group');
+                do_settings_sections('social-settings-admin');
                 submit_button();
                 ?>
             </form>
@@ -66,20 +61,45 @@ class MySettingsPage
             'my_option_name', // Option name
             array($this, 'sanitize') // Sanitize
         );
-
         add_settings_section(
             'setting_section_id', // ID
             'My Custom Settings', // Title
             array($this, 'print_section_info'), // Callback
             'my-setting-admin' // Page
         );
-
         add_settings_field(
             'category_ids', // ID
             'Categories to display on frontend', // Title
             array($this, 'category_ids_callback'), // Callback
             'my-setting-admin', // Page
             'setting_section_id' // Section
+        );
+
+
+        register_setting(
+            'social_network_group', // Option group
+            'my_option_name', // Option name
+            array($this, 'sanitize') // Sanitize
+        );
+        add_settings_section(
+            'social_section_id', // ID
+            'Social Networks', // Title
+            array($this, 'social_section_info'), // Callback
+            'social-settings-admin' // Page
+        );
+        add_settings_field(
+            'facebook_link', // ID
+            'Enter facebook link', // Title
+            array($this, 'facebook_link_callback'), // Callback
+            'social-settings-admin', // Page
+            'social_section_id' // Section
+        );
+        add_settings_field(
+            'twitter_link', // ID
+            'Enter Twitter link', // Title
+            array($this, 'twitter_link_callback'), // Callback
+            'social-settings-admin', // Page
+            'social_section_id' // Section
         );
     }
 
@@ -109,6 +129,12 @@ class MySettingsPage
         if (isset($string))
             $new_input['category_ids'] = $string;
 
+        if (isset($input['facebook_link']))
+            $new_input['facebook_link'] = sanitize_text_field( $input['facebook_link'] );
+
+        if (isset($input['twitter_link']))
+            $new_input['twitter_link'] = sanitize_text_field( $input['twitter_link'] );
+
         return $new_input;
     }
 
@@ -120,6 +146,10 @@ class MySettingsPage
         print 'Enter your settings below:';
     }
 
+    public function social_section_info() {
+        print 'Enter your social settings below:';
+    }
+
     /**
      * Get the settings option array and print one of its values
      */
@@ -128,6 +158,20 @@ class MySettingsPage
         printf(
             '<input type="text" id="category_ids" name="my_option_name[category_ids]" value="%s" />',
             isset($this->options['category_ids']) ? esc_attr($this->options['category_ids']) : ''
+        );
+    }
+
+    public function facebook_link_callback() {
+        printf(
+            '<input type="text" id="facebook_link" name="my_option_name[facebook_link]" value="%s" />',
+            isset($this->options['facebook_link']) ? esc_attr($this->options['facebook_link']) : ''
+        );
+    }
+
+    public function twitter_link_callback() {
+        printf(
+            '<input type="text" id="twitter_link" name="my_option_name[twitter_link]" value="%s" />',
+            isset($this->options['twitter_link']) ? esc_attr($this->options['twitter_link']) : ''
         );
     }
 
