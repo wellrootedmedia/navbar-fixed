@@ -88,7 +88,8 @@
                 .fadeOut();
         });
 
-        $('.size-full, .size-medium').addClass('img-thumbnail');
+        $('.size-full').addClass('img-thumbnail');
+        $('.size-medium').addClass('img-thumbnail');
 
     });
 </script>
