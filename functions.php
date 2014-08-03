@@ -1,60 +1,40 @@
 <?php
+/* shortcodes */
+require_once(get_template_directory() . '/inc/shortcodes.php');
+/* toolbar menu*/
+require_once(get_template_directory() . '/inc/toolbarMenu.php');
+/* theme support */
+require_once(get_template_directory() . '/inc/themeSupport.php');
+/* sidebar */
+require_once(get_template_directory() . '/inc/sidebar.php');
+/* theme options */
+require_once( get_template_directory() . '/inc/admin/theme-options.php' );
+
+
+//function codex_custom_init() {
+//    $args = array(
+//        'public' => true,
+//        'label'  => 'Books',
+//        'capability_type' => 'post',
+//        'supports' => array('title', 'editor', 'author', 'post-formats')
+//    );
+//    register_post_type( 'book', $args );
+//}
+//add_action( 'init', 'codex_custom_init' );
+
+//function doSomethingLater()
+//{
+//    do something here...
+//}
+//add_action( 'addCarousel', 'doSomethingLater', 1 );
+
 register_nav_menu( 'primary', 'Primary Menu' );
-add_theme_support( 'post-thumbnails' );
 
-if ( function_exists( 'add_image_size' ) ) {
-    add_image_size( 'single-featured-image', 1000, 200, true ); //(cropped)
-    add_image_size( 'loop-thumb', 300, 200, true );
-    add_image_size( 'image-thumbnail', 100, 100);
-    add_image_size( 'featured-image', 1600, 600 );
-}
-add_theme_support( 'post-formats', array(
-    'aside',
-    'image',
-    'video',
-    //'audio',
-    //'quote',
-    //'link',
-    'gallery'
-) );
-
+add_action( 'admin_init', 'custom_page_tag_categories' );
 function custom_page_tag_categories() {
     register_taxonomy_for_object_type('post_tag', 'page');
     register_taxonomy_for_object_type('category', 'page');
 }
-add_action( 'admin_init', 'custom_page_tag_categories' );
-
-
-
-// [bartag foo="bar"]
-function bartag_func($atts) {
-    extract(shortcode_atts(array(
-            'foo' => 'no foo',
-            'baz' => 'default baz',
-    ), $atts));
-
-    return "foo = {$foo}";
-}
-add_shortcode('bartag', 'bartag_func');
-
-
-function toolbar_link_to_mypage( $wp_admin_bar ) {
-
-    $my_theme = wp_get_theme();
-    $say = $my_theme->get( 'Name' ) . " [ " . $my_theme->get( 'Version' ) . " ]";
-    $blogUrl = get_site_url() . '/wp-admin/themes.php?page=navbar-theme-options';
-
-    $args = array(
-        'id'    => 'theme_version',
-        'title' => $say,
-        'href'  => $blogUrl,
-        'meta'  => array( 'class' => 'current-theme-version' )
-    );
-    $wp_admin_bar->add_node( $args );
-}
-add_action( 'admin_bar_menu', 'toolbar_link_to_mypage', 999 );
-
-
 
 if ( ! function_exists( 'navbar_fixed_posted_on' ) ) :
     function navbar_fixed_posted_on() {
@@ -120,42 +100,12 @@ if ( ! function_exists( 'navbar_fixed_top_paging_nav' ) ) :
     }
 endif;
 
-
+add_filter('excerpt_more', 'custom_excerpt_more');
 function custom_excerpt_more($more) {
     global $post;
     //return '...<br/><button href="'. get_permalink($post->ID) . '" type="button" class="btn btn-default">Read More</button>';
     //return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed-top') .'</a>';
 }
-add_filter('excerpt_more', 'custom_excerpt_more');
-
-/**
- * Register our sidebars and widgetized areas.
- *
- */
-function shawn_nolan_widgets_init() {
-//    <h1>Archives</h1>
-//    <ul class="nav">
-//        <li><a href="#">January 2012</a></li>
-//        <li><a href="#">February 2012</a></li>
-//        <li><a href="#">March 2012</a></li>
-//    </ul>
-    $args = array(
-        'name'          => __( 'Shawn Nolan Widgets', 'theme_text_domain' ),
-        'id'            => 'unique-sidebar-id',
-        'description'   => '',
-        'class'         => 'nav',
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '<h1 class="widgettitle">',
-        'after_title'   => '</h1>' );
-    register_sidebar($args);
-}
-add_action( 'widgets_init', 'shawn_nolan_widgets_init' );
-
-
-
-
-require_once( get_template_directory() . '/inc/admin/theme-options.php' );
 
 function retrieveCatsForHomepage() {
     $catOptions = get_option('my_option_name');
@@ -167,7 +117,6 @@ function retrieveCatsForHomepage() {
     return 0;
 
 }
-
 
 function retrieveSocialNetworks() {
     $socialNetworks = get_option('my_option_name');
@@ -185,52 +134,3 @@ function retrieveSocialNetworks() {
 
     echo '</div>';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//function codex_custom_init() {
-//    $args = array(
-//        'public' => true,
-//        'label'  => 'Books',
-//        'capability_type' => 'post',
-//        'supports' => array('title', 'editor', 'author', 'post-formats')
-//    );
-//    register_post_type( 'book', $args );
-//}
-//add_action( 'init', 'codex_custom_init' );
-
-//function setupCarousel()
-//{
-//    do something here...
-//}
-//add_action( 'addCarousel', 'setupCarousel', 1 );
-
-
-
-
-//function theme_options_menu() {
-//    add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'navbar-theme-options', 'page1_options');
-//    add_action( 'admin_init', 'register_mysettings' );
-//}
-//add_action('admin_menu', 'theme_options_menu');
-//
-//
-//function register_mysettings() {
-//    //register our settings
-//    register_setting( 'baw-settings-group', 'new_option_name' );
-//    register_setting( 'baw-settings-group', 'some_other_option' );
-//    register_setting( 'baw-settings-group', 'option_etc' );
-//}
-//
-//function page1_options() {
-//    include( get_template_directory() . '/inc/admin/page1.php' );
-//}
