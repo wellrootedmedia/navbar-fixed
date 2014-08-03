@@ -23,6 +23,10 @@
 
 <?php wp_footer(); ?>
 
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+<!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />-->
+<!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>-->
+
 <!--<script src="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/js/jquery.js"></script>-->
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/bootstrap.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/holder.min.js"></script>
@@ -88,8 +92,7 @@
                 .fadeOut();
         });
 
-        $('.size-full').addClass('img-thumbnail');
-        $('.size-medium').addClass('img-thumbnail');
+        $('.size-full, .size-medium').addClass('img-thumbnail');
 
     });
 </script>

@@ -90,6 +90,13 @@
                     'walker' => ''
                 ); wp_nav_menu($defaults);
                 ?>
+
+                <form role="search" method="get" id="searchform" class="searchform navbar-form navbar-left" action="?">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" value="" name="s" id="s">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
                 <ul class="nav navbar-nav navbar-right"><!-- right side menu --></ul>
             </div>
 
