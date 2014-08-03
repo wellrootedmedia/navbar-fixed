@@ -11,19 +11,13 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/style.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/html5shiv.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/respond.min.js"></script>
     <![endif]-->
-
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/jquery.slider.min.css" rel="stylesheet">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/style.min.css" rel="stylesheet">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/social.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/helpers/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/helpers/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/helpers/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
 
     <?php wp_head(); ?>
 
