@@ -91,7 +91,7 @@
                 ); wp_nav_menu($defaults);
                 ?>
 
-                <form role="search" method="get" id="searchform" class="searchform navbar-form navbar-left" action="?">
+                <form role="search" method="get" id="searchform" class="searchform navbar-form navbar-left" action="<?php bloginfo('url'); ?>/index.php">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search" value="" name="s" id="s">
                     </div>
