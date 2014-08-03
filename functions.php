@@ -39,7 +39,7 @@ function custom_page_tag_categories() {
 if ( ! function_exists( 'navbar_fixed_posted_on' ) ) :
     function navbar_fixed_posted_on() {
         if ( is_sticky() && is_home() && ! is_paged() ) {
-            echo '<span class="featured-post">' . __( 'Sticky', 'navbar-fixed-top' ) . '</span>';
+            echo '<span class="featured-post">' . __( 'Sticky', 'navbar-fixed' ) . '</span>';
         }
 
         // Set up and print post meta information.
@@ -83,8 +83,8 @@ if ( ! function_exists( 'navbar_fixed_top_paging_nav' ) ) :
             'current'  => $paged,
             'mid_size' => 1,
             'add_args' => array_map( 'urlencode', $query_args ),
-            'prev_text' => __( '&laquo;', 'navbar-fixed-top' ),
-            'next_text' => __( '&raquo;', 'navbar-fixed-top' ),
+            'prev_text' => __( '&laquo;', 'navbar-fixed' ),
+            'next_text' => __( '&raquo;', 'navbar-fixed' ),
             'type'  => 'array'
         ) );
 
@@ -104,7 +104,7 @@ add_filter('excerpt_more', 'custom_excerpt_more');
 function custom_excerpt_more($more) {
     global $post;
     //return '...<br/><button href="'. get_permalink($post->ID) . '" type="button" class="btn btn-default">Read More</button>';
-    //return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed-top') .'</a>';
+    //return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed') .'</a>';
 }
 
 function retrieveCatsForHomepage() {

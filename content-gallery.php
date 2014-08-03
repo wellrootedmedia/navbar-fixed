@@ -11,7 +11,7 @@
     <header class="entry-header">
         <?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) ) : ?>
             <div class="entry-meta">
-                <span class="cat-links">Categories: <?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'navbar-fixed-top' ) ); ?></span>
+                <span class="cat-links">Categories: <?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'navbar-fixed' ) ); ?></span>
             </div><!-- .entry-meta -->
         <?php
         endif;
@@ -30,10 +30,10 @@
             <?php navbar_fixed_posted_on(); ?>
 
             <?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-                <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'navbar-fixed-top' ), __( '1 Comment', 'navbar-fixed-top' ), __( '% Comments', 'navbar-fixed-top' ) ); ?></span>
+                <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'navbar-fixed' ), __( '1 Comment', 'navbar-fixed' ), __( '% Comments', 'navbar-fixed' ) ); ?></span>
             <?php endif; ?>
 
-            <?php edit_post_link( __( 'Edit', 'navbar-fixed-top' ), '<span class="edit-link">', '</span>' ); ?>
+            <?php edit_post_link( __( 'Edit', 'navbar-fixed' ), '<span class="edit-link">', '</span>' ); ?>
         </div><!-- .entry-meta -->
     </header><!-- .entry-header -->
 
@@ -41,9 +41,9 @@
 
     <div class="entry-content">
         <?php
-        the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'navbar-fixed-top' ) );
+        the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'navbar-fixed' ) );
         wp_link_pages( array(
-            'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'navbar-fixed-top' ) . '</span>',
+            'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'navbar-fixed' ) . '</span>',
             'after'       => '</div>',
             'link_before' => '<span>',
             'link_after'  => '</span>',

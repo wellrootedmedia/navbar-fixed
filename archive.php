@@ -5,13 +5,13 @@ if ( have_posts() ) : ?>
         <h1 class="page-title">
             <?php
             if ( is_day() ) :
-                printf( __( 'Daily Archives: %s', 'navbar-fixed-top' ), get_the_date() );
+                printf( __( 'Daily Archives: %s', 'navbar-fixed' ), get_the_date() );
             elseif ( is_month() ) :
-                printf( __( 'Monthly Archives: %s', 'navbar-fixed-top' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'navbar-fixed-top' ) ) );
+                printf( __( 'Monthly Archives: %s', 'navbar-fixed' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'navbar-fixed' ) ) );
             elseif ( is_year() ) :
-                printf( __( 'Yearly Archives: %s', 'navbar-fixed-top' ), get_the_date( _x( 'Y', 'yearly archives date format', 'navbar-fixed-top' ) ) );
+                printf( __( 'Yearly Archives: %s', 'navbar-fixed' ), get_the_date( _x( 'Y', 'yearly archives date format', 'navbar-fixed' ) ) );
             else :
-                _e( 'Archives', 'navbar-fixed-top' );
+                _e( 'Archives', 'navbar-fixed' );
             endif;
             ?>
         </h1>
