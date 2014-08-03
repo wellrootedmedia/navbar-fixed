@@ -94,6 +94,9 @@
 
         $('.size-full, .size-medium').addClass('img-thumbnail');
 
+        $('.comment-form').find('#comment').css('width', '100%');
+        $('.comment-form').find('#submit').addClass('btn btn-lg btn-success');
+
     });
 </script>
 
