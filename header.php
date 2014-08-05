@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/style.min.css" rel="stylesheet">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
