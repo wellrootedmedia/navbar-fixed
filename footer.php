@@ -49,6 +49,7 @@
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/jquery.slider.min.js"></script>
 
 <!-- Add fancyBox main JS and CSS files -->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/helpers/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/helpers/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
 <!-- Add Button helper (this is optional) -->
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/helpers/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
