@@ -12,6 +12,5 @@ Text Domain: navbar-fixed
 */
 
 @import url('style.min.css');
-.social-sharing {
-    margin-top: 10px;
-}
+.social-sharing { margin-top: 10px; }
+.share { float: left; padding-left: 10px; }
