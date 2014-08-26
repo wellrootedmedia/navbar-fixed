@@ -4,10 +4,21 @@
 
 <div id="post-<?php the_ID(); ?>" class="well">
 
+    <div class="social-sharing">
+        <div class="twitter share">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo wp_get_shortlink(); ?>" data-via="" data-hashtags="ShawnNolanPhotography">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="shortlink share">
+            <input type="text" value="<?php echo wp_get_shortlink(); ?>" />
+        </div>
+        <div class="clear"></div>
+    </div>
+
 	<header class="entry-header">
 		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) ) : ?>
 		<div class="entry-meta">
-			<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'navbar-fixed' ) ); ?></span>
+			<span class="cat-links"><?php _e('Categories: '); ?> <?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'navbar-fixed' ) ); ?></span>
 		</div><!-- .entry-meta -->
 		<?php
 			endif;
