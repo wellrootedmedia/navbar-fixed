@@ -132,5 +132,15 @@ function retrieveSocialNetworks() {
     if( !empty( $socialNetworks['youtube_link'] ) && $socialNetworks['youtube_link'] )
         echo '<div class="social-icon social-youtube"><a href="' . $socialNetworks['youtube_link'] . '" target="_blank" data-original-title="YouTube">YouTube</a></div>';
 
+    if( !empty( $socialNetworks['linkedin_link'] ) && $socialNetworks['linkedin_link'] )
+        echo '<div class="social-icon social-linkedin"><a href="' . $socialNetworks['linkedin_link'] . '" target="_blank" data-original-title="LinkedIn">LinkedIn</a></div>';
+
     echo '</div>';
+}
+
+function getCategoryPermalink() {
+    $categoryId = get_cat_ID( 'Blog' );
+    $categoryLink = get_category_link( $categoryId );
+
+    return $categoryLink;
 }

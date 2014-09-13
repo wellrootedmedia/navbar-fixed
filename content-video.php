@@ -62,6 +62,8 @@
     <div>
         <?php the_tags( '<footer class="entry-meta">Tags: <span class="tag-links">', ', ', '</span></footer>' ); ?>
     </div>
+
+    <?php get_template_part('social', 'media-block'); ?>
 </div><!-- #post-## -->
 
 <?php endif; ?>

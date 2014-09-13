@@ -101,6 +101,13 @@ class MySettingsPage
             'social-settings-admin', // Page
             'social_section_id' // Section
         );
+        add_settings_field(
+            'linkedin_link', // ID
+            'Enter LinkedIn link', // Title
+            array($this, 'linkedin_link_callback'), // Callback
+            'social-settings-admin', // Page
+            'social_section_id' // Section
+        );
     }
 
     /**
@@ -134,6 +141,9 @@ class MySettingsPage
 
         if (isset($input['twitter_link']))
             $new_input['twitter_link'] = sanitize_text_field( $input['twitter_link'] );
+
+        if (isset($input['linkedin_link']))
+            $new_input['linkedin_link'] = sanitize_text_field( $input['linkedin_link'] );
 
         return $new_input;
     }
@@ -172,6 +182,13 @@ class MySettingsPage
         printf(
             '<input type="text" id="twitter_link" name="my_option_name[twitter_link]" value="%s" />',
             isset($this->options['twitter_link']) ? esc_attr($this->options['twitter_link']) : ''
+        );
+    }
+
+    public function linkedin_link_callback() {
+        printf(
+            '<input type="text" id="linkedin_link" name="my_option_name[linkedin_link]" value="%s" />',
+            isset($this->options['linkedin_link']) ? esc_attr($this->options['linkedin_link']) : ''
         );
     }
 

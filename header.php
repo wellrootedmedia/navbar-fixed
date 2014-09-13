@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Shawn Nolan Jr knows WordPress, Photography, video editing & programming. Shawn Nolan Jr enjoys surfing, motox, snowboarding, being with his family and outdoors.">
+    <meta name="author" content="Shawn Nolan A.K.A. intractvmedia">
 
     <title><?php wp_title( '|', true, 'right' ); ?><?php bloginfo('name'); ?></title>
 
@@ -59,6 +59,14 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1374650836096330&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top">

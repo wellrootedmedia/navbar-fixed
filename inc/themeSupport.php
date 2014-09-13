@@ -12,7 +12,7 @@ add_theme_support( 'post-formats', array(
     'image',
     'video',
     //'audio',
-    //'quote',
+    'quote',
     //'link',
     'gallery'
 ) );

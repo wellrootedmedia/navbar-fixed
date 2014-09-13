@@ -3,6 +3,22 @@
 <?php else: ?>
 
     <div class="well">
+        <?php
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail( 'single-featured-image', array('class' => 'img-responsive') );
+        }
+        ?>
+
+        <div class="social-sharing">
+            <div class="twitter share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo wp_get_shortlink(); ?>" data-via="" data-hashtags="ShawnNolanDotCom">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+            <div class="shortlink share">
+                <input type="text" value="<?php echo wp_get_shortlink(); ?>" />
+            </div>
+            <div class="clear"></div>
+        </div>
 
         <header class="entry-header">
             <?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) ) : ?>
@@ -19,9 +35,9 @@
             endif;
             ?>
             <div class="entry-meta">
-            <span class="post-format">
-                <a class="entry-format" href="<?php echo esc_url( get_post_format_link( 'image' ) ); ?>"><?php echo get_post_format_string( 'image' ); ?></a>
-            </span>
+                <span class="post-format">
+                    <a class="entry-format" href="<?php echo esc_url( get_post_format_link( 'quote' ) ); ?>"><?php echo get_post_format_string( 'quote' ); ?></a>
+                </span>
 
                 <?php navbar_fixed_posted_on(); ?>
 
@@ -37,18 +53,15 @@
 
         <div class="entry-content">
             <?php
-            if(is_single()) :
-                the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'navbar-fixed' ) );
-                wp_link_pages( array(
-                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'navbar-fixed' ) . '</span>',
-                    'after'       => '</div>',
-                    'link_before' => '<span>',
-                    'link_after'  => '</span>',
-                ) );
-            endif;
+            the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'navbar-fixed' ) );
+            wp_link_pages( array(
+                'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'navbar-fixed' ) . '</span>',
+                'after'       => '</div>',
+                'link_before' => '<span>',
+                'link_after'  => '</span>',
+            ) );
             ?>
-        </div>
-
+        </div><!-- .entry-content -->
         <div>
             <?php the_tags( '<footer class="entry-meta">Tags: <span class="tag-links">', ', ', '</span></footer>' ); ?>
         </div>

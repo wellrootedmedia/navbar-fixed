@@ -1,7 +1,7 @@
 
 <footer>
     <div class="col-md-6">
-        <p><a href="<?php bloginfo('url'); ?>"><?php echo get_bloginfo( 'description' ); ?></a> <a href="<?php bloginfo('url'); ?>/<?php echo date('Y'); ?>"><?php echo date('Y'); ?></a></p>
+        <p><a href="<?php bloginfo('url'); ?>"><?php echo get_bloginfo( 'description' ); ?></a> <a href="<?php bloginfo('url'); ?>/<?php echo date('Y'); ?>"><?php echo date('Y'); ?></a> | <a href="<?php echo getCategoryPermalink(); ?>">Blog</a> </p>
     </div>
 
     <?php retrieveSocialNetworks(); ?>
