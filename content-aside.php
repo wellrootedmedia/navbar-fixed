@@ -1,5 +1,7 @@
 <?php if(!is_single()) : ?>
+
     <?php get_template_part('content', 'loop'); ?>
+
 <?php else: ?>
 
     <div class="well">
@@ -35,8 +37,8 @@
                 <?php endif; ?>
 
                 <?php edit_post_link( __( 'Edit', 'navbar-fixed' ), '<span class="edit-link">', '</span>' ); ?>
-            </div><!-- .entry-meta -->
-        </header><!-- .entry-header -->
+            </div>
+        </header>
 
         <hr class="featurette-divider">
 
@@ -50,7 +52,8 @@
                 'link_after'  => '</span>',
             ) );
             ?>
-        </div><!-- .entry-content -->
+        </div>
+
         <div>
             <?php the_tags( '<footer class="entry-meta">Tags: <span class="tag-links">', ', ', '</span></footer>' ); ?>
         </div>
