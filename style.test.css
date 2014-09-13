@@ -154,6 +154,16 @@ footer {
     margin-bottom: 20px
 }
 
+.footer-menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer-menu-links > li {
+    float: left;
+    padding-right: 10px;
+}
+
 @media (max-width: 991px) {
     .col-md-3 {
         width: 50%;

@@ -1,17 +1,12 @@
-<style type="text/css">
-
-</style>
 <div class="well">
-
     <header class="entry-header">
         <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
         <div class="clear"></div>
-
         <div class="entry-meta">
             <?php navbar_fixed_posted_on(); ?>
             <?php edit_post_link( __( 'Edit', 'navbar-fixed' ), '<span class="edit-link">', '</span>' ); ?>
-        </div><!-- .entry-meta -->
-    </header><!-- .entry-header -->
+        </div>
+    </header>
     <div class="rightimage">
         <?php
         if ( has_post_thumbnail() ) {
@@ -19,9 +14,7 @@
         }
         ?>
     </div>
-
     <hr class="featurette-divider">
-
     <div class="entry-content page">
         <?php
         the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'navbar-fixed' ) );
@@ -32,5 +25,5 @@
             'link_after'  => '</span>',
         ) );
         ?>
-    </div><!-- .entry-content -->
+    </div>
 </div>

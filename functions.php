@@ -10,24 +10,6 @@ require_once(get_template_directory() . '/inc/sidebar.php');
 /* theme options */
 require_once( get_template_directory() . '/inc/admin/theme-options.php' );
 
-
-//function codex_custom_init() {
-//    $args = array(
-//        'public' => true,
-//        'label'  => 'Books',
-//        'capability_type' => 'post',
-//        'supports' => array('title', 'editor', 'author', 'post-formats')
-//    );
-//    register_post_type( 'book', $args );
-//}
-//add_action( 'init', 'codex_custom_init' );
-
-//function doSomethingLater()
-//{
-//    do something here...
-//}
-//add_action( 'addCarousel', 'doSomethingLater', 1 );
-
 register_nav_menu( 'primary', 'Primary Menu' );
 
 add_action( 'admin_init', 'custom_page_tag_categories' );
@@ -107,15 +89,24 @@ function custom_excerpt_more($more) {
     //return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed') .'</a>';
 }
 
-function retrieveCatsForHomepage() {
+function retrieveCategories() {
     $catOptions = get_option('my_option_name');
 
     if($catOptions) {
         return $catOptions['category_ids'];
     }
 
-    return 0;
+    return "";
+}
 
+function retrievePortfolioCats() {
+    $catOptions = get_option('my_option_name');
+
+    if($catOptions) {
+        return $catOptions['portfolio_category_ids'];
+    }
+
+    return null;
 }
 
 function retrieveSocialNetworks() {

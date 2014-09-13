@@ -8,7 +8,6 @@
             <p class="lead"><?php the_excerpt(); ?></p>
         </div>
 
-        <p class="lead categories">Categories: <?php echo get_the_category_list(' | '); ?></p>
     </div>
 
     <div class="col-md-5">

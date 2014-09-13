@@ -1,6 +1,4 @@
-
 <div class="row">
-
     <?php
     $args = array(
         'type'                     => 'post',
@@ -11,14 +9,13 @@
         'hide_empty'               => 1,
         'hierarchical'             => 1,
         'exclude'                  => '',
-        'include'                  => retrieveCatsForHomepage(),
+        'include'                  => retrieveCategories(),
         'number'                   => '',
         'taxonomy'                 => 'category',
         'pad_counts'               => false
 
     );
     $categories = get_categories($args);
-
     if(!function_exists('showCategoryImage')) {
         $imageUrl = "";
         function showCategoryImage($id, $size) {
@@ -40,7 +37,6 @@
             }
         }
     }
-
     foreach ( $categories as $category ) {
         ?>
         <div class="col-md-3 featured-content">
@@ -51,10 +47,7 @@
         </div><!-- /.col-md-3 -->
         <?php
     }
-
     wp_reset_query();
     ?>
-
 </div>
-
 <hr class="featurette-divider">

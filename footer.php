@@ -1,10 +1,37 @@
-
+<?php
+global $is_iphone;
+?>
 <footer>
     <div class="col-md-6">
-        <p><a href="<?php bloginfo('url'); ?>"><?php echo get_bloginfo( 'description' ); ?></a> <a href="<?php bloginfo('url'); ?>/<?php echo date('Y'); ?>"><?php echo date('Y'); ?></a> | <a href="<?php echo getCategoryPermalink(); ?>">Blog</a> </p>
+        <p><a href="<?php bloginfo('url'); ?>"><?php echo get_bloginfo( 'description' ); ?></a> <a href="<?php bloginfo('url'); ?>/<?php echo date('Y'); ?>"><?php echo date('Y'); ?></a></p>
+        <?php
+        $defaults = array(
+            'theme_location' => '',
+            'menu' => 'footer menu',
+            'container' => '',
+            'container_class' => '',
+            'container_id' => '',
+            'menu_class' => 'footer-menu-links',
+            'menu_id' => '',
+            'echo' => true,
+            'fallback_cb' => '',
+            'before' => ' | ',
+            'after' => ' | ',
+            'link_before' => '',
+            'link_after' => '',
+            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            'depth' => 0,
+            'walker' => ''
+        ); wp_nav_menu($defaults);
+        ?>
+        <div class="clear"></div>
     </div>
 
     <?php retrieveSocialNetworks(); ?>
+
+    <div class="clear"></div>
+    <br/><br/>
+
 </footer>
 
 <?php wp_footer(); ?>

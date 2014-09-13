@@ -57,56 +57,62 @@ class MySettingsPage
     public function page_init()
     {
         register_setting(
-            'my_option_group', // Option group
-            'my_option_name', // Option name
-            array($this, 'sanitize') // Sanitize
+            'my_option_group',
+            'my_option_name',
+            array($this, 'sanitize')
         );
         add_settings_section(
-            'setting_section_id', // ID
-            'My Custom Settings', // Title
-            array($this, 'print_section_info'), // Callback
-            'my-setting-admin' // Page
+            'setting_section_id',
+            'My Custom Settings',
+            array($this, 'print_section_info'),
+            'my-setting-admin'
         );
         add_settings_field(
-            'category_ids', // ID
-            'Categories to display on frontend', // Title
-            array($this, 'category_ids_callback'), // Callback
-            'my-setting-admin', // Page
-            'setting_section_id' // Section
+            'category_ids',
+            'Categories to display on frontend',
+            array($this, 'category_ids_callback'),
+            'my-setting-admin',
+            'setting_section_id'
         );
-
+        add_settings_field(
+            'portfolio_category_ids',
+            'Portfolio categories to display',
+            array($this, 'portfolio_category_ids_callback'),
+            'my-setting-admin',
+            'setting_section_id'
+        );
 
         register_setting(
-            'social_network_group', // Option group
-            'my_option_name', // Option name
-            array($this, 'sanitize') // Sanitize
+            'social_network_group',
+            'my_option_name',
+            array($this, 'sanitize')
         );
         add_settings_section(
-            'social_section_id', // ID
-            'Social Networks', // Title
-            array($this, 'social_section_info'), // Callback
-            'social-settings-admin' // Page
+            'social_section_id',
+            'Social Networks',
+            array($this, 'social_section_info'),
+            'social-settings-admin'
         );
         add_settings_field(
-            'facebook_link', // ID
-            'Enter facebook link', // Title
-            array($this, 'facebook_link_callback'), // Callback
-            'social-settings-admin', // Page
-            'social_section_id' // Section
+            'facebook_link',
+            'Enter facebook link',
+            array($this, 'facebook_link_callback'),
+            'social-settings-admin',
+            'social_section_id'
         );
         add_settings_field(
-            'twitter_link', // ID
-            'Enter Twitter link', // Title
-            array($this, 'twitter_link_callback'), // Callback
-            'social-settings-admin', // Page
-            'social_section_id' // Section
+            'twitter_link',
+            'Enter Twitter link',
+            array($this, 'twitter_link_callback'),
+            'social-settings-admin',
+            'social_section_id'
         );
         add_settings_field(
-            'linkedin_link', // ID
-            'Enter LinkedIn link', // Title
-            array($this, 'linkedin_link_callback'), // Callback
-            'social-settings-admin', // Page
-            'social_section_id' // Section
+            'linkedin_link',
+            'Enter LinkedIn link',
+            array($this, 'linkedin_link_callback'),
+            'social-settings-admin',
+            'social_section_id'
         );
     }
 
@@ -115,26 +121,19 @@ class MySettingsPage
      *
      * @param array $input Contains all settings fields as array keys
      */
-    public function sanitize($input)
-    {
+    public function sanitize($input) {
         $new_input = array();
-        $string = $input['category_ids'];
 
-        $string = preg_replace(
-            array(
-                '/[^\d,]/', // Matches anything that's not a comma or number.
-                '/(?<=,),+/', // Matches consecutive commas.
-                '/^,+/', // Matches leading commas.
-                '/,+$/' // Matches trailing commas.
-            ),
-            '', // Remove all matched substrings.
-            $string
-        );
-        $array = array_filter(explode(",", $string));
-        $string = implode(",", $array);
+        $homePageCats = $input['category_ids'];
+        $catString = $this->replaceStringForIntegers($homePageCats);
+        $portfolioPageCats = $input['portfolio_category_ids'];
+        $portCatString = $this->replaceStringForIntegers($portfolioPageCats);
 
-        if (isset($string))
-            $new_input['category_ids'] = $string;
+        if (isset($homePageCats))
+            $new_input['category_ids'] = $catString;
+
+        if (isset($portfolioPageCats))
+            $new_input['portfolio_category_ids'] = $portCatString;
 
         if (isset($input['facebook_link']))
             $new_input['facebook_link'] = sanitize_text_field( $input['facebook_link'] );
@@ -146,6 +145,24 @@ class MySettingsPage
             $new_input['linkedin_link'] = sanitize_text_field( $input['linkedin_link'] );
 
         return $new_input;
+    }
+
+    private function replaceStringForIntegers($string) {
+        $array = array_filter(explode(",", $string));
+        $string = implode(",", $array);
+
+        $string = preg_replace(
+            array(
+                '/[^\d,]/', // Matches anything that's not a comma or number.
+                '/(?<=,),+/', // Matches consecutive commas.
+                '/^,+/', // Matches leading commas.
+                '/,+$/' // Matches trailing commas.
+            ),
+            '', // Remove all matched substrings.
+            $string
+        );
+
+        return $string;
     }
 
     /**
@@ -168,6 +185,13 @@ class MySettingsPage
         printf(
             '<input type="text" id="category_ids" name="my_option_name[category_ids]" value="%s" />',
             isset($this->options['category_ids']) ? esc_attr($this->options['category_ids']) : ''
+        );
+    }
+    public function portfolio_category_ids_callback()
+    {
+        printf(
+            '<input type="text" id="portfolio_category_ids" name="my_option_name[portfolio_category_ids]" value="%s" />',
+            isset($this->options['portfolio_category_ids']) ? esc_attr($this->options['portfolio_category_ids']) : ''
         );
     }
 
