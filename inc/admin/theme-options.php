@@ -75,9 +75,9 @@ class MySettingsPage
             'setting_section_id'
         );
         add_settings_field(
-            'portfolio_category_ids',
-            'Portfolio categories to display',
-            array($this, 'portfolio_category_ids_callback'),
+            'parent_portfolio_id',
+            'Parent portfolio category',
+            array($this, 'parent_portfolio_id_callback'),
             'my-setting-admin',
             'setting_section_id'
         );
@@ -126,14 +126,14 @@ class MySettingsPage
 
         $homePageCats = $input['category_ids'];
         $catString = $this->replaceStringForIntegers($homePageCats);
-        $portfolioPageCats = $input['portfolio_category_ids'];
+        $portfolioPageCats = $input['parent_portfolio_id'];
         $portCatString = $this->replaceStringForIntegers($portfolioPageCats);
 
         if (isset($homePageCats))
             $new_input['category_ids'] = $catString;
 
         if (isset($portfolioPageCats))
-            $new_input['portfolio_category_ids'] = $portCatString;
+            $new_input['parent_portfolio_id'] = $portCatString;
 
         if (isset($input['facebook_link']))
             $new_input['facebook_link'] = sanitize_text_field( $input['facebook_link'] );
@@ -187,11 +187,11 @@ class MySettingsPage
             isset($this->options['category_ids']) ? esc_attr($this->options['category_ids']) : ''
         );
     }
-    public function portfolio_category_ids_callback()
+    public function parent_portfolio_id_callback()
     {
         printf(
-            '<input type="text" id="portfolio_category_ids" name="my_option_name[portfolio_category_ids]" value="%s" />',
-            isset($this->options['portfolio_category_ids']) ? esc_attr($this->options['portfolio_category_ids']) : ''
+            '<input type="text" id="parent_portfolio_id" name="my_option_name[parent_portfolio_id]" value="%s" />',
+            isset($this->options['parent_portfolio_id']) ? esc_attr($this->options['parent_portfolio_id']) : ''
         );
     }
 

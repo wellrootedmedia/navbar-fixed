@@ -82,12 +82,38 @@ if ( ! function_exists( 'navbar_fixed_top_paging_nav' ) ) :
     }
 endif;
 
-add_filter('excerpt_more', 'custom_excerpt_more');
-function custom_excerpt_more($more) {
-    global $post;
-    //return '...<br/><button href="'. get_permalink($post->ID) . '" type="button" class="btn btn-default">Read More</button>';
-    //return '...<br/><a class="more-link btn btn-default" href="'. get_permalink($post->ID) . '">'. __('Read More', 'navbar-fixed') .'</a>';
-}
+//function myLoginFooter() {
+//    $args = array(
+//        //'echo'           => true,
+//        'redirect'       => site_url( $_SERVER['REQUEST_URI'] ),
+//        'form_id'        => 'loginform',
+//        'label_username' => __( 'Username' ),
+//        'label_password' => __( 'Password' ),
+//        'label_remember' => __( 'Remember Me' ),
+//        'label_log_in'   => __( 'Log In' ),
+//        'id_username'    => 'user_login',
+//        'id_password'    => 'user_pass',
+//        'id_remember'    => 'rememberme',
+//        'id_submit'      => 'wp-submit',
+//        'remember'       => true,
+//        'value_username' => NULL,
+//        'value_remember' => false
+//    );
+//
+//    wp_login_form( $args );
+//}
+//add_action('login_message', 'myLoginFooter');
+//function my_login_logo_url() {
+//    return home_url();
+//}
+//add_filter( 'login_headerurl', 'my_login_logo_url' );
+//
+//function my_login_logo_url_title() {
+//    return 'Your Site Name and Info';
+//}
+//add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+
 
 function retrieveCategories() {
     $catOptions = get_option('my_option_name');
@@ -96,17 +122,17 @@ function retrieveCategories() {
         return $catOptions['category_ids'];
     }
 
-    return "";
+    return 0;
 }
 
-function retrievePortfolioCats() {
+function retrieveParentPortfolioCat() {
     $catOptions = get_option('my_option_name');
 
     if($catOptions) {
-        return $catOptions['portfolio_category_ids'];
+        return $catOptions['parent_portfolio_id'];
     }
 
-    return null;
+    return 0;
 }
 
 function retrieveSocialNetworks() {
