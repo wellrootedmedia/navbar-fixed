@@ -4,7 +4,6 @@
 
 <div class="well">
     <?php
-
     if ( has_post_thumbnail() ) {
         the_post_thumbnail( 'single-featured-image', array('class' => 'img-responsive') );
     }
@@ -14,7 +13,7 @@
         <?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) ) : ?>
             <div class="entry-meta">
                 <span class="cat-links">Categories: <?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'navbar-fixed' ) ); ?></span>
-            </div><!-- .entry-meta -->
+            </div>
         <?php
         endif;
 

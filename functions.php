@@ -10,6 +10,26 @@ require_once(get_template_directory() . '/inc/sidebar.php');
 /* theme options */
 require_once( get_template_directory() . '/inc/admin/theme-options.php' );
 
+// add styling to theme
+add_action( 'wp_enqueue_scripts', 'register_theme_styles' );
+function register_theme_styles() {
+    wp_register_style( 'bootstrap-style', get_stylesheet_directory_uri() . "/assets/css/bootstrap.min.css" );
+    wp_register_style('custom-theme-style', get_stylesheet_directory_uri(). "/style.test.css");
+    wp_register_style('slider-styling', get_stylesheet_directory_uri(). "/assets/css/jquery.slider.min.css");
+    wp_register_style('social-media-styling', get_stylesheet_directory_uri(). "/assets/css/social.min.css");
+    wp_register_style('fancybox-style', get_stylesheet_directory_uri(). "/helpers/fancybox/source/jquery.fancybox.css?v=2.1.5");
+    wp_register_style('fancybox-button-style', get_stylesheet_directory_uri(). "/helpers/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5");
+    wp_register_style('fancybox-thumb-style', get_stylesheet_directory_uri(). "/helpers/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7");
+
+    wp_enqueue_style( 'bootstrap-style' );
+    wp_enqueue_style( 'custom-theme-style' );
+    wp_enqueue_style( 'slider-styling' );
+    wp_enqueue_style( 'social-media-styling' );
+    wp_enqueue_style('fancybox-style');
+    wp_enqueue_style('fancybox-button-style');
+    wp_enqueue_style('fancybox-thumb-style');
+}
+
 register_nav_menu( 'primary', 'Primary Menu' );
 
 add_action( 'admin_init', 'custom_page_tag_categories' );
