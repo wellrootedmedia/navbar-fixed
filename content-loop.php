@@ -7,7 +7,10 @@
         <div class="remove-mobile">
             <p class="lead"><?php the_excerpt(); ?></p>
         </div>
-
+        <p class="lead">Categories: <?php echo get_the_category_list(' | '); ?></p>
+        <p class="lead">
+            <?php the_tags( 'Tags: ', ', ', '' ); ?>
+        </p>
     </div>
 
     <div class="col-md-5">
