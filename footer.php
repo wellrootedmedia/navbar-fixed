@@ -73,6 +73,10 @@ global $is_iphone;
             $( this ).parent().addClass('fancybox');
         });
 
+        $('.entry-content #buddypress img').each(function() {
+            $( this ).parent().removeClass('fancybox');
+        });
+
         $('.fancybox').fancybox({ padding: 0 });
 
         /* end fancybox stuff */
